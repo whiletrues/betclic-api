@@ -21,11 +21,11 @@ namespace Betclic.Ranking.API.Controllers
             _participationService = participationService;
         }
 
-        [HttpGet(":api/tournaments")]
+        [HttpGet("/api/tournaments")]
         public Task<List<Tournament>> List() => _tournamentService.List();
 
 
-        [HttpPost(":api/tournaments")]
+        [HttpPost("/api/tournaments")]
         public async Task<Tournament> Create([FromBody] Tournament tournament)
         {
             var result = await _tournamentService.Create(tournament);
