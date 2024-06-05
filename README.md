@@ -24,5 +24,5 @@ This will start the API container and any required dependencies.
 
 ## Step 3: Swagger UI
 
-Once the API is running, you can access the Swagger UI to explore the endpoints. The default endpoint for Swagger UI is:
+Once the API is running, you can access the Swagger UI to explore the endpoints. The default endpoint for Swagger UI is: http://localhost:8080/swagger/index.html
 Open this URL in your browser to view the API documentation and test the endpoints.
