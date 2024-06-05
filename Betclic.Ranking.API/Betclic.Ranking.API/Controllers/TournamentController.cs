@@ -8,7 +8,6 @@ using System.Net;
 namespace Betclic.Ranking.API.Controllers
 {
 
-    [Route("api/")]
     [ApiController]
     public class TournamentController : ControllerBase
     {
@@ -22,11 +21,11 @@ namespace Betclic.Ranking.API.Controllers
             _participationService = participationService;
         }
 
-        [HttpGet("tournaments")]
+        [HttpGet(":api/tournaments")]
         public Task<List<Tournament>> List() => _tournamentService.List();
 
 
-        [HttpPost("tournaments")]
+        [HttpPost(":api/tournaments")]
         public async Task<Tournament> Create([FromBody] Tournament tournament)
         {
             var result = await _tournamentService.Create(tournament);
@@ -36,7 +35,7 @@ namespace Betclic.Ranking.API.Controllers
                 (error) => throw error.ToHttpException());
         }
 
-        [HttpGet("api/tournaments/{id}")]
+        [HttpGet("/api/tournaments/{id}")]
         public async Task<Tournament> Get([FromRoute] string? id)
         {
             if (id is null)
