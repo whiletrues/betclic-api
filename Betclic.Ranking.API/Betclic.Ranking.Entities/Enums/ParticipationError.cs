@@ -17,6 +17,9 @@ namespace Betclic.Ranking.Entities.Enums
         /// <summary>
         /// The tournament was not found.
         /// </summary>
-        TournamentNotFound = 1
+        TournamentNotFound = 1,
+
+
+        TournamentRequired = 2
     }
 }

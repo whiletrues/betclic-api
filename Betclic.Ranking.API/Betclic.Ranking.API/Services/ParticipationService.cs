@@ -53,7 +53,7 @@ namespace Betclic.Ranking.API.Services
             var specializedRepository = _participationRepository as ParticipationRepository;
 
             if (tournament is null)
-                return ParticipationError.TournamentNotFound;
+                return ParticipationError.TournamentRequired;
             
             var summary = await specializedRepository.GetRankingByTournament(tournament);
 
