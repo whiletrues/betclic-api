@@ -51,6 +51,12 @@ namespace Betclic.Ranking.API.Services
             return tournament;
         }
 
+
+        /// <summary>
+        ///  Get a tournament.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<Result<Tournament, TournamentError>> Get(string id)
         {
             if (id is null)

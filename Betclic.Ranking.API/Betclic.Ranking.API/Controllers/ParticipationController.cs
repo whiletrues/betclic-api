@@ -1,5 +1,6 @@
 ﻿using Betclic.Ranking.API.Services;
 using Betclic.Ranking.Entities.Entities;
+using Betclic.Ranking.Entities.Enums;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Betclic.Ranking.API.Controllers
@@ -23,7 +24,7 @@ namespace Betclic.Ranking.API.Controllers
 
             return result.Match(
                 (participation) => participation,
-                (error) => throw new Exception(error.ToString())
+                (error) => throw error.ToHttpException()
             );
         }
     }

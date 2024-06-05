@@ -19,6 +19,11 @@ namespace Betclic.Ranking.API.Services
             _tournamentService = tournamentService;
         }
 
+        /// <summary>
+        ///  Create a new participation.
+        /// </summary>
+        /// <param name="participation"></param>
+        /// <returns></returns>
         public async Task<Result<Participation, ParticipationError>> Create(Participation participation)
         {
             await _participationRepository.Add(participation);
@@ -26,6 +31,11 @@ namespace Betclic.Ranking.API.Services
             return participation;
         }
 
+        /// <summary>
+        /// List all participations.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
         public IAsyncEnumerable<Participation> ListByPlayerId(string? player)
         {
             var specializedRepository = _participationRepository as ParticipationRepository;
@@ -33,7 +43,11 @@ namespace Betclic.Ranking.API.Services
             return specializedRepository.ListByPlayerId(player);
         }
 
-
+        /// <summary>
+        /// Get the ranking of a tournament.
+        /// </summary>
+        /// <param name="tournament"></param>
+        /// <returns></returns>
         public async Task<Result<List<ParticipationSummary>, ParticipationError>> GetRankingByTournament(string? tournament)
         {
             var specializedRepository = _participationRepository as ParticipationRepository;

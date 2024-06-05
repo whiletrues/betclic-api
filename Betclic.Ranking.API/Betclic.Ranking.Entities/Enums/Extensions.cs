@@ -39,23 +39,21 @@ namespace Betclic.Ranking.Entities.Enums
             };
         }
 
-
-        public static ParticipationError ToParticipationError(this PlayerError error)
+        /// <summary>
+        /// Convert a PlayerError to an HttpResponseException
+        /// </summary>
+        /// <param name="playerError"></param>
+        /// <returns>A new instance of HttpResponseException</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static HttpResponseException ToHttpException(this ParticipationError participation)
         {
-            return error switch
+            return participation switch
             {
-                PlayerError.NotFound => ParticipationError.PlayerNotFound,
+                ParticipationError.PlayerNotFound => new HttpResponseException(System.Net.HttpStatusCode.NotFound),
+                ParticipationError.TournamentNotFound => new HttpResponseException(System.Net.HttpStatusCode.NotFound),
                 _ => throw new NotImplementedException()
             };
         }
 
-        public static ParticipationError ToParticipationError(this TournamentError error)
-        {
-            return error switch
-            {
-                TournamentError.NotFound => ParticipationError.TournamentNotFound,
-                _ => throw new NotImplementedException()
-            };
-        }
     }
 }

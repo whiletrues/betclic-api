@@ -15,7 +15,9 @@ namespace Betclic.Ranking.API.Controllers
         internal readonly TournamentService _tournamentService;
 
         internal readonly ParticipationService _participationService;
-        public TournamentController(TournamentService tournamentService, ParticipationService participationService)
+        public TournamentController(
+            TournamentService tournamentService, 
+            ParticipationService participationService)
         {
             _tournamentService = tournamentService;
             _participationService = participationService;
@@ -59,7 +61,7 @@ namespace Betclic.Ranking.API.Controllers
 
             return result.Match(
                 (ranking) => ranking,
-                (error) => throw new Exception());
+                (error) => throw error.ToHttpException());
         }
 
     }
